@@ -1,0 +1,18 @@
+# ninja log v5
+3	4442	6982730030105371	build.ninja	e7ed09a26039f2ea
+2	3187	6982725792804909	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	7c6ffb7511c779db
+2	2025	6982727602052786	CMakeFiles/search_engine.dir/main.cpp.obj	a17010f9abe36d6b
+4	561	6982725766641040	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	6410142884953932
+4426	4464	6982725805672845	lib/libgtest_maind.a	cc21a191e5463df7
+2026	3732	6982727619178848	search_engine[1]_tests.cmake	523dbf98498dc0e4
+3188	4426	6982725805284658	lib/libgtestd.a	86625f1a874f9cbd
+2026	3732	6982727619178848	search_engine.exe	523dbf98498dc0e4
+2026	3732	6982727619178848	C:/Users/evgen/CLionProjects/FPFinal/search_engine/cmake-build-debug/search_engine[1]_tests.cmake	523dbf98498dc0e4
+8	592	6982730040998556	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	aaa4387d47087eb0
+2	3049	6982730065462838	CMakeFiles/search_engine.dir/main.cpp.obj	4c0728e1d185e90c
+5	3336	6982730068318040	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	68d2a81d215cdb9
+3336	4610	6982730081169594	lib/libgtestd.a	86625f1a874f9cbd
+4610	4656	6982730081639456	lib/libgtest_maind.a	cc21a191e5463df7
+4656	9098	6982730126044231	search_engine.exe	523dbf98498dc0e4
+4656	9098	6982730126044231	search_engine[1]_tests.cmake	523dbf98498dc0e4
+4656	9098	6982730126044231	C:/Users/evgen/CLionProjects/FPFinal/search_engine/cmake-build-debug/search_engine[1]_tests.cmake	523dbf98498dc0e4
