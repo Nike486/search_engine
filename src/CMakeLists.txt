@@ -1,8 +1,11 @@
 cmake_minimum_required (VERSION 3.8)
 
 set(Src
-	"main.cpp"
-)
+		"main.cpp"
+		"ConverterJSON.cpp"
+		"InvertedIndex.cpp"
+		"SearchEngine.cpp"
+        )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 add_executable(SearchEngine ${Src})

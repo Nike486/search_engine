@@ -594,6 +594,27 @@ build src/CMakeFiles/SearchEngine.dir/main.cpp.obj: CXX_COMPILER__SearchEngine_D
   OBJECT_DIR = src\CMakeFiles\SearchEngine.dir
   OBJECT_FILE_DIR = src\CMakeFiles\SearchEngine.dir
 
+build src/CMakeFiles/SearchEngine.dir/ConverterJSON.cpp.obj: CXX_COMPILER__SearchEngine_Debug C$:/Users/evgen/Desktop/search_engine/src/ConverterJSON.cpp || cmake_object_order_depends_target_SearchEngine
+  DEP_FILE = src\CMakeFiles\SearchEngine.dir\ConverterJSON.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include
+  OBJECT_DIR = src\CMakeFiles\SearchEngine.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\SearchEngine.dir
+
+build src/CMakeFiles/SearchEngine.dir/InvertedIndex.cpp.obj: CXX_COMPILER__SearchEngine_Debug C$:/Users/evgen/Desktop/search_engine/src/InvertedIndex.cpp || cmake_object_order_depends_target_SearchEngine
+  DEP_FILE = src\CMakeFiles\SearchEngine.dir\InvertedIndex.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include
+  OBJECT_DIR = src\CMakeFiles\SearchEngine.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\SearchEngine.dir
+
+build src/CMakeFiles/SearchEngine.dir/SearchEngine.cpp.obj: CXX_COMPILER__SearchEngine_Debug C$:/Users/evgen/Desktop/search_engine/src/SearchEngine.cpp || cmake_object_order_depends_target_SearchEngine
+  DEP_FILE = src\CMakeFiles\SearchEngine.dir\SearchEngine.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include
+  OBJECT_DIR = src\CMakeFiles\SearchEngine.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\SearchEngine.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target SearchEngine
@@ -602,7 +623,7 @@ build src/CMakeFiles/SearchEngine.dir/main.cpp.obj: CXX_COMPILER__SearchEngine_D
 #############################################
 # Link the executable C:\Users\evgen\Desktop\search_engine\SearchEngine.exe
 
-build C$:/Users/evgen/Desktop/search_engine/SearchEngine.exe: CXX_EXECUTABLE_LINKER__SearchEngine_Debug src/CMakeFiles/SearchEngine.dir/main.cpp.obj
+build C$:/Users/evgen/Desktop/search_engine/SearchEngine.exe: CXX_EXECUTABLE_LINKER__SearchEngine_Debug src/CMakeFiles/SearchEngine.dir/main.cpp.obj src/CMakeFiles/SearchEngine.dir/ConverterJSON.cpp.obj src/CMakeFiles/SearchEngine.dir/InvertedIndex.cpp.obj src/CMakeFiles/SearchEngine.dir/SearchEngine.cpp.obj
   FLAGS = -g
   LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -707,42 +728,42 @@ build cmake_object_order_depends_target_GtestTests: phony || cmake_object_order_
 build tests/CMakeFiles/GtestTests.dir/InvertedIndex_test.cpp.obj: CXX_COMPILER__GtestTests_Debug C$:/Users/evgen/Desktop/search_engine/tests/InvertedIndex_test.cpp || cmake_object_order_depends_target_GtestTests
   DEP_FILE = tests\CMakeFiles\GtestTests.dir\InvertedIndex_test.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/tests/..include -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = tests\CMakeFiles\GtestTests.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\GtestTests.dir
 
 build tests/CMakeFiles/GtestTests.dir/SearchEngine_test.cpp.obj: CXX_COMPILER__GtestTests_Debug C$:/Users/evgen/Desktop/search_engine/tests/SearchEngine_test.cpp || cmake_object_order_depends_target_GtestTests
   DEP_FILE = tests\CMakeFiles\GtestTests.dir\SearchEngine_test.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/tests/..include -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = tests\CMakeFiles\GtestTests.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\GtestTests.dir
 
 build tests/CMakeFiles/GtestTests.dir/ConverterJSON_test.cpp.obj: CXX_COMPILER__GtestTests_Debug C$:/Users/evgen/Desktop/search_engine/tests/ConverterJSON_test.cpp || cmake_object_order_depends_target_GtestTests
   DEP_FILE = tests\CMakeFiles\GtestTests.dir\ConverterJSON_test.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/tests/..include -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = tests\CMakeFiles\GtestTests.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\GtestTests.dir
 
 build tests/CMakeFiles/GtestTests.dir/__/src/InvertedIndex.cpp.obj: CXX_COMPILER__GtestTests_Debug C$:/Users/evgen/Desktop/search_engine/src/InvertedIndex.cpp || cmake_object_order_depends_target_GtestTests
   DEP_FILE = tests\CMakeFiles\GtestTests.dir\__\src\InvertedIndex.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/tests/..include -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = tests\CMakeFiles\GtestTests.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\GtestTests.dir\__\src
 
 build tests/CMakeFiles/GtestTests.dir/__/src/SearchEngine.cpp.obj: CXX_COMPILER__GtestTests_Debug C$:/Users/evgen/Desktop/search_engine/src/SearchEngine.cpp || cmake_object_order_depends_target_GtestTests
   DEP_FILE = tests\CMakeFiles\GtestTests.dir\__\src\SearchEngine.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/tests/..include -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = tests\CMakeFiles\GtestTests.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\GtestTests.dir\__\src
 
 build tests/CMakeFiles/GtestTests.dir/__/src/ConverterJSON.cpp.obj: CXX_COMPILER__GtestTests_Debug C$:/Users/evgen/Desktop/search_engine/src/ConverterJSON.cpp || cmake_object_order_depends_target_GtestTests
   DEP_FILE = tests\CMakeFiles\GtestTests.dir\__\src\ConverterJSON.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
+  INCLUDES = -IC:/Users/evgen/Desktop/search_engine/tests/..include -IC:/Users/evgen/Desktop/search_engine/include -IC:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/json-src/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest/include -isystem C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-src/googletest
   OBJECT_DIR = tests\CMakeFiles\GtestTests.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\GtestTests.dir\__\src
 
