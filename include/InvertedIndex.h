@@ -31,6 +31,8 @@ public:
 */
     std::vector<Entry> GetWordCount(const std::string &word);
 
+    std::vector<std::string> GetListFiles();
+
 private:
     ConverterJSON converterJson;
     std::vector<std::string> docs; // список содержимого документов

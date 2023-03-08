@@ -63,3 +63,12 @@
         }
         return entryVector;
     }
+
+std::vector<std::string> InvertedIndex::GetListFiles()
+{
+    std::ifstream read("config.json");
+    nlohmann::json jsonRead;
+    read >> jsonRead;
+    read.close();
+    return jsonRead["files"];
+}

@@ -19,57 +19,15 @@
 <br><h1 align="left"> :notebook: Краткая инструкция, как запустить проект локально:</h1></br>
 
 
-<p> :black_circle: Объявляем классы:</p>
+<p> :black_circle: Запускаем программу</p>
 
-```C++
-ConverterJSON converterJSON; 
-InvertedIndex invertedIndex; 
-SearchServer searchServer(invertedIndex);
-```
+<p> :black_circle: Автоматически создаётся файл "listRequests.txt". В этом файле через запятую указываеются запросы.</p>
 
+<p> :black_circle: Вводим количество текстовых файлов, после ввода программа создаёт нужное количество файлов </p>
 
-<p> :black_circle: В фигурные скобки пишем запросы: </p>
+<p> :black_circle: Далее заполняем созданные файлы и запускаем программу </p>
 
-```C++
-converterJSON.setRequests(std::vector<std::string>{"moscow is the capital of russia", "moscow", "on"});
-```
+<p> :black_circle: При успешном завершении программы появится надпись "Successfully! The result is in file "result.html"" </p>
 
+<p> :black_circle: Результат можно посмотреть в файле "result.html" </p>
 
-<p> :black_circle: В фигурные скобки пишем тексты по которым будет осуществляться поиск: </p>
-
-
-```C++
-invertedIndex.UpdateDocumentBase(std::vector<std::string>{"london is the capital of great britain",
-                                                          "paris is the capital of france",
-                                                          "berlin is the capital of germany",
-                                                          "rome is the capital of italy",
-                                                          "madrid is the capital of spain",
-                                                          "lisboa is the capital of portugal",
-                                                          "bern is the capital of switzerland",
-                                                          "moscow is the capital of russia",
-                                                          "kiev is the capital of ukraine",
-                                                          "minsk is the capital of belarus",
-                                                          "astana is the capital of kazakhstan",
-                                                          "beijing is the capital of china",
-                                                          "tokyo is the capital of japan",
-                                                          "bangkok is the capital of thailand",
-                                                          "welcome to moscow the capital of russia the third rome",
-                                                          "amsterdam is the capital of netherlands",
-                                                          "helsinki is the capital of finland",
-                                                          "oslo is the capital of norway",
-                                                          "stockholm is the capital of sweden",
-                                                          "riga is the capital of latvia",
-                                                          "tallinn is the capital of estonia",
-                                                          "warsaw is the capital of poland"});
-```
-
-
-
-<p> :black_circle: Функция записи результатов в файл "answers.json.": </p>
-
-```C++
-converterJSON.putAnswers(searchServer.completionAnswers());    
-```
-
-
-<p> :black_circle: После запуска проекта в файле "answers.json." запишутся результаты поиска. </p>

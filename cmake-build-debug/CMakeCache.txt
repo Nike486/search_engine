@@ -152,7 +152,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Search-Engine
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/search_engine
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -368,15 +368,6 @@ JSON_MultipleHeaders:BOOL=ON
 
 //Include as system headers (skip for clang-tidy).
 JSON_SystemInclude:BOOL=OFF
-
-//Value Computed by CMake
-Search-Engine_BINARY_DIR:STATIC=C:/Users/evgen/Desktop/search_engine/cmake-build-debug
-
-//Value Computed by CMake
-Search-Engine_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Search-Engine_SOURCE_DIR:STATIC=C:/Users/evgen/Desktop/search_engine
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=C:/Users/evgen/Desktop/search_engine/cmake-build-debug/_deps/googletest-build/googlemock
@@ -644,7 +635,7 @@ NLOHMANN_JSON_CONFIG_INSTALL_DIR:INTERNAL=share/cmake/nlohmann_json
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/Search-Engine
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/search_engine
 //Path to a program.
 _Python_EXECUTABLE:INTERNAL=_Python_EXECUTABLE-NOTFOUND
 cmake_package_name:INTERNAL=GTest
