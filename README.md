@@ -18,16 +18,43 @@
 
 <br><h1 align="left"> :notebook: Краткая инструкция, как запустить проект локально:</h1></br>
 
+<p> :black_circle: Создаём текстовые файлы по которым программа будет осуществлять поиск. </p>
 
-<p> :black_circle: Запускаем программу</p>
+<p> :black_circle: Json файлы "config.json", "answers.json" и "requests.json" по умолчанию находятся в директории с проектом. Нужно заполнить файлы "config.json" и "answers.json" </p>
 
-<p> :black_circle: Автоматически создаётся файл "listRequests.txt". В этом файле через запятую указываеются запросы.</p>
+<p> Пример заполнения "config.json":  </p>
 
-<p> :black_circle: Вводим количество текстовых файлов, после ввода программа создаёт нужное количество файлов </p>
+```Json
+{
+  "config": {
+    "max_responses": 5,
+    "name": "SkillboxSearchEngine",
+    "version": "0.1"
+  },
+  "files": [
+    "1.txt",
+    "2.txt",
+    "3.txt",
+    "4.txt",
+    "5.txt",
+    "6.txt"
+  ]
+}
+```
 
-<p> :black_circle: Далее заполняем созданные файлы и запускаем программу </p>
+<p> Пример заполнения "requests.json":  </p>
+
+```Json
+{
+  "requests": [
+    "moscow is the capital of russia",
+    "moscow",
+    "on"
+  ]
+}
+```
+<p> :black_circle: После заполнения .txt и Json файлов запускаем программу. </p>
 
 <p> :black_circle: При успешном завершении программы появится надпись "Successfully! The result is in file "result.html"" </p>
 
-<p> :black_circle: Результат можно посмотреть в файле "result.html" </p>
-
+<p> :black_circle: Результат можно посмотреть в файле "answers.json" и для визуализации в файле "result.html" </p>

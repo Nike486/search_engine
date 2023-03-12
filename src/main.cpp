@@ -10,93 +10,53 @@ int main() {
     InvertedIndex invertedIndex;
     SearchServer searchServer(invertedIndex);
 
-    std::ifstream readConfig("config.json");
-    std::ifstream readRequests("listRequests.txt");
+    std::ifstream configJson ("config.json");
+    std::ifstream requestsJson ("requests.json");
 
-    std::vector<std::string> requests;
-    std::string requestsText;
-
-
-    if (!readRequests) {
-        std::ofstream createRequests("listRequests.txt");
-        std::cout << "File \"listRequests.txt\" has been created." << std::endl;
-
-    } else if (readRequests) {
-        while (!readRequests.eof()) {
-            std::string buf;
-            readRequests >> buf;
-            requestsText += buf + " ";
-        }
-
-        std::string requestsRead;
-
-        for (int i = 0; i <= requestsText.size(); ++i) {
-            if (requestsText[i] == ',' || i == requestsText.size()) {
-                requests.push_back(requestsRead);
-                requestsRead = "";
-            } else {
-                requestsRead += requestsText[i];
-            }
-        }
+    if (!configJson)
+    {
+        std::cout << "File \"config.json\" not found" << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        return 0;
     }
 
-    std::vector<std::string> createTextFiles;
+    if (!requestsJson)
+    {
+        std::cout << "File \"requests.json\" not found" << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        return 0;
+    }
 
-    if (!readConfig) {
-        int quantityFiles;
-        std::cout << "Enter quantity text files: ";
-        std::cin >> quantityFiles;
+    try
+    {
+        auto requests = converterJSON.GetRequests();
+        auto listDoc = invertedIndex.GetListFiles();
 
-        for (int i = 0; i < quantityFiles; ++i) {
-            createTextFiles.push_back("");
-        }
-        invertedIndex.UpdateDocumentBase(createTextFiles);
-        readConfig.close();
+        invertedIndex.UpdateDocumentBase(listDoc);
+        auto listDocResult = invertedIndex.GetListFiles();
 
-        std::cout << "Files has been created. Fill in the files and \"listRequests.txt\"";
-    } else {
-        std::string str;
-        std::ifstream l("listRequests.txt");
-        std::getline(l, str);
+        if (listDocResult.size() == 0) {
+            std::cout << "Error! Files are missing" << std::endl;
 
-        if (str.empty()) {
-            std::cout << "File \"listRequests.txt\" empty. Fill in the file.";
-            std::this_thread::sleep_for(std::chrono::seconds(5));
+            std::ofstream HTMLFile("result.html");
+            HTMLFile << "<p> Error! Files are missing </p>" << std::endl;
+            HTMLFile.close();
+
+            std::this_thread::sleep_for(std::chrono::seconds(3));
             return 0;
         }
-        l.close();
 
+        if (requests.size() == 0) {
+            std::cout << "Error! Requests are missing" << std::endl;
 
-        auto list = invertedIndex.GetListFiles();
-        char answer;
-        for (int i = 0; i < list.size(); ++i) {
-            std::ifstream file("file00" + std::to_string(i) + ".txt");
-            if (!file.is_open()) {
-                std::cout << "\"file00" << std::to_string(i) << ".txt\" not found. Add this file? (y/n): ";
-                std::cin >> answer;
-                if (answer == 'y') {
-                    std::ofstream txtFile("file00" + std::to_string(i) + ".txt");
-                    std::cout << "File " << "\"file00" + std::to_string(i) + ".txt\"" << " added!";
-                    return 0;
-                } else return 0;
-            }
-            file.close();
+            std::ofstream HTMLFile("result.html");
+            HTMLFile << "<p> Error! Requests are missing </p>" << std::endl;
+            HTMLFile.close();
+
+            std::this_thread::sleep_for(std::chrono::seconds(3));
+            return 0;
         }
 
-        for (int i = 0; i < list.size(); ++i) {
-            std::ifstream file("file00" + std::to_string(i) + ".txt");
-            std::string s;
-            std::getline(file, s);
-            if (s.empty()) {
-                std::cout << "File \"file00" << std::to_string(i) << ".txt\" empty. Fill in the file.";
-                std::this_thread::sleep_for(std::chrono::seconds(5));
-                return 0;
-            }
-
-            file.close();
-        }
-
-        converterJSON.setRequests(requests);
         converterJSON.putAnswers(searchServer.completionAnswers());
 
         std::ofstream HTMLFile("result.html");
@@ -105,19 +65,36 @@ int main() {
         for (int i = 0; i < answers.size(); ++i) {
             HTMLFile << "<h1> Запрос " << i + 1 << "(" << requests[i] << ")" << ": </h1>" << std::endl;
             for (int j = 0; j < answers[i].size(); ++j) {
-                if (answers[i][j].second > 0) {
-                    HTMLFile << "<p>" << j + 1 << ")" << "<a href=\"file:file00" << answers[i][j].first
-                             << ".txt\">file00" << answers[i][j].first << "</a></p>" << std::endl;
-                } else HTMLFile << "<p> Не найдено </p>" << std::endl;
+                if (answers[i][j].second > 0 && converterJSON.GetResponsesLimit() > j) {
+                    HTMLFile << "<p>" << j + 1 << ")" << "<a href=\"" << listDocResult[answers[i][j].first] << "\">"
+                             << listDocResult[answers[i][j].first] << "</a></p>" << std::endl;
+                } else if (answers[i][j].second <= 0)
+                {
+                    HTMLFile << "<p> Не найдено </p>" << std::endl;
+                }
             }
             HTMLFile
                     << "<p> ======================================================================================================= </p>"
                     << std::endl;
         }
 
+
+        std::ifstream read("config.json");
+        nlohmann::json jsonRead;
+        read >> jsonRead;
+        read.close();
+
+        std::cout << "======================================" << std::endl << jsonRead["config"]["name"] << std::endl << "======================================" << std::endl;
+
         std::cout << "Successfully! The result is in file \"result.html\"";
+        std::this_thread::sleep_for(std::chrono::seconds(3));
     }
 
-    std::this_thread::sleep_for(std::chrono::seconds(5));
+    catch (std::exception err)
+    {
+        std::cout << "Error in the JSON file" << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+    }
+
     return 0;
 }

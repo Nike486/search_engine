@@ -2,24 +2,50 @@
 
 
     void InvertedIndex::UpdateDocumentBase(std::vector<std::string> input_docs) {
-        std::vector<std::string> setFiles;
-        for (int i = 0; i < input_docs.size(); ++i) {
-            setFiles.push_back("file00" + std::to_string(i) + ".txt");
-            std::ofstream doc("file00" + std::to_string(i) + ".txt");
-            doc << input_docs[i];
-            doc.close();
+
+        for (int i = 0; i < input_docs.size(); ++i)
+        {
+            std::ifstream openDocs (input_docs[i]);
+            if (!openDocs)
+            {
+                std::cout << "file \"" << input_docs[i] << "\" not found" << std::endl;
+                input_docs.erase(input_docs.cbegin() + i);
+                i--;
+            } else openDocs.close();
         }
+
+       std::string str;
+
+        for (int i = 0; i < input_docs.size(); ++i)
+        {
+            std::ifstream openDocs(input_docs[i]);
+            std::getline(openDocs, str);
+            if (str.empty())
+            {
+                std::cout << "File \"" << input_docs[i] << "\" empty." << std::endl;
+                input_docs.erase(input_docs.cbegin() + i);
+                i--;
+            } else openDocs.close();
+        }
+
+
+        std::ifstream read("config.json");
+        nlohmann::json jsonRead;
+        read >> jsonRead;
+        read.close();
+
 
         std::ofstream configFile("config.json");
         nlohmann::json config;
 
-        config["config"]["name"] = "SkillboxSearchEngine";
-        config["config"]["version"] = "0.1";
-        config["config"]["max_responses"] = 5;
-        config["files"] = setFiles;
+        config["config"]["name"] = jsonRead["config"]["name"];
+        config["config"]["version"] = jsonRead["config"]["version"];
+        config["config"]["max_responses"] = jsonRead["config"]["max_responses"];
+        config["files"] = input_docs;
 
         configFile << config.dump(2);
         configFile.close();
+
     }
 
 

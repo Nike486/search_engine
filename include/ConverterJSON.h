@@ -11,8 +11,6 @@ class ConverterJSON {
 public:
     ConverterJSON() = default;
 
-    void setRequests(std::vector<std::string> requests);
-
 /**
 * Метод получения содержимого файлов
 * @return Возвращает список с содержимым файлов перечисленных

@@ -10,16 +10,6 @@ auto getJson (std::string nameJson) {
 }
 
 
-    void ConverterJSON::setRequests(std::vector<std::string> requests) {
-        std::ofstream requestsFile("requests.json");
-        nlohmann::json requestsJson;
-
-        requestsJson["requests"] = requests;
-
-        requestsFile << requestsJson.dump(2);
-    }
-
-
     std::vector<std::string> ConverterJSON::GetTextDocuments() {
         std::vector<std::string> linkText = getJson("config.json")["files"];
         std::vector<std::string> getText;
