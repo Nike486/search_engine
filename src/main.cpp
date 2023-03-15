@@ -57,10 +57,11 @@ int main() {
             return 0;
         }
 
-        converterJSON.putAnswers(searchServer.completionAnswers());
+        auto answers = searchServer.completionAnswers();
+
+        converterJSON.putAnswers(answers);
 
         std::ofstream HTMLFile("result.html");
-        auto answers = searchServer.completionAnswers();
 
         for (int i = 0; i < answers.size(); ++i) {
             HTMLFile << "<h1> Запрос " << i + 1 << "(" << requests[i] << ")" << ": </h1>" << std::endl;

@@ -1,18 +1,19 @@
 ﻿#include "SearchEngine.h"
 
-void recordWords (std::vector<std::vector<std::vector<Entry>>> &VVVEntry, std::vector<std::vector<std::string>> VVString, std::vector<std::vector<Entry>> VEntry, int i, InvertedIndex _index)
+void recordWords (std::vector<std::vector<std::vector<Entry>>> &VVVEntry, std::vector<std::vector<std::string>> VVString, std::vector<std::vector<Entry>> VEntry, int i, InvertedIndex _index, std::vector<int> &counter)
 {
+
     std::mutex mtx;
-    for (int j = 0; j < VVString[i].size(); ++j)
-    {
-        mtx.lock();
+
+    mtx.lock();
+    for (int j = 0; j < VVString[i].size(); ++j) {
         auto r = _index.GetWordCount(VVString[i][j]);
         VEntry.push_back(r);
-        mtx.unlock();
     }
-    mtx.lock();
+
     VVVEntry.push_back(VEntry);
     VEntry.clear();
+    counter.push_back(i);
     mtx.unlock();
 }
 
@@ -35,12 +36,29 @@ void recordWords (std::vector<std::vector<std::vector<Entry>>> &VVVEntry, std::v
         }
 
         std::vector<std::vector<std::vector<Entry>>> VVVEntry;
+        std::vector<std::vector<std::vector<Entry>>> sort;
         std::vector<std::vector<Entry>> VEntry;
         std::vector<std::thread> threads;
+        std::vector<int> counter;
+
 
         for (int i = 0; i < VVString.size(); ++i) {
-            threads.emplace_back(recordWords, std::ref(VVVEntry), VVString, VEntry, i, _index);
+            threads.emplace_back(recordWords, std::ref(sort), VVString, VEntry, i, _index, std::ref(counter));
+        }
+
+        for (int i = 0; i < threads.size(); ++i) {
             threads[i].join();
+        }
+
+
+        VVVEntry = sort;
+        for (int j = 0; j < counter.size(); ++j) {
+            for (int i = 0; i < counter.size(); ++i) {
+                if (j == counter[i]) {
+                    VVVEntry[j] = sort[i];
+                    break;
+                }
+            }
         }
 
         int sum = 0;
