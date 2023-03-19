@@ -1,6 +1,6 @@
 {
   "answers": {
-    "request001": {
+    "request1": {
       "relevance": [
         {
           "docid": 1,
@@ -25,7 +25,7 @@
       ],
       "result": true
     },
-    "request002": {
+    "request2": {
       "relevance": [
         {
           "docid": 1,
@@ -38,7 +38,7 @@
       ],
       "result": true
     },
-    "request003": {
+    "request3": {
       "relevance": [
         {
           "docid": 0,
@@ -59,7 +59,7 @@
       ],
       "result": true
     },
-    "request004": {
+    "request4": {
       "result": false
     }
   }

@@ -15,6 +15,9 @@ struct RelativeIndex{
 
 void recordWords (std::vector<std::vector<std::vector<Entry>>> &VVVEntry, std::vector<std::vector<std::string>> VVString, std::vector<std::vector<Entry>> VEntry, int i, InvertedIndex _index, std::vector<int> &counter);
 
+void createHTML (std::vector<std::vector<std::pair<int, float>>> answers, std::vector<std::basic_string<char>> requests, ConverterJSON converterJSON, std::vector<std::basic_string<char>> listDocResult);
+
+
 class SearchServer {
 public:
 

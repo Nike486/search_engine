@@ -46,8 +46,8 @@ auto getJson (std::string nameJson) {
                 if (answers[i].size() == 1 && answers[i][j].second != 0) {
                     std::pair<std::pair<std::string, int>, std::pair<std::string, float>> pair{{"docid", answers[i][j].first},
                                                                                                {"rank",  answers[i][j].second}};
-                    jsonAnswers["answers"]["request00" + std::to_string(i + 1)] = pair;
-                    jsonAnswers["answers"]["request00" + std::to_string(i + 1)]["result"] = true;
+                    jsonAnswers["answers"]["request" + std::to_string(i + 1)] = pair;
+                    jsonAnswers["answers"]["request" + std::to_string(i + 1)]["result"] = true;
                 } else if (answers[i].size() > 1 && answers[i][j].second != 0) {
                     std::vector<std::pair<std::pair<std::string, int>, std::pair<std::string, float>>> vectorPair;
 
@@ -59,9 +59,9 @@ auto getJson (std::string nameJson) {
                         }
 
                     }
-                    jsonAnswers["answers"]["request00" + std::to_string(i + 1)]["relevance"] = vectorPair;
-                    jsonAnswers["answers"]["request00" + std::to_string(i + 1)]["result"] = true;
-                } else jsonAnswers["answers"]["request00" + std::to_string(i + 1)]["result"] = false;
+                    jsonAnswers["answers"]["request" + std::to_string(i + 1)]["relevance"] = vectorPair;
+                    jsonAnswers["answers"]["request" + std::to_string(i + 1)]["result"] = true;
+                } else jsonAnswers["answers"]["request" + std::to_string(i + 1)]["result"] = false;
             }
         }
         answersFile << jsonAnswers.dump(2);

@@ -1,10 +1,30 @@
 ﻿#include "SearchEngine.h"
 
+std::mutex mtx;
+
+void createHTML (std::vector<std::vector<std::pair<int, float>>> answers, std::vector<std::basic_string<char>> requests, ConverterJSON converterJSON, std::vector<std::basic_string<char>> listDocResult)
+{
+    std::ofstream HTMLFile("result.html");
+
+    for (int i = 0; i < answers.size(); ++i) {
+        HTMLFile << "<h1> Запрос " << i + 1 << "(" << requests[i] << ")" << ": </h1>" << std::endl;
+        for (int j = 0; j < answers[i].size(); ++j) {
+            if (answers[i][j].second > 0 && converterJSON.GetResponsesLimit() > j) {
+                HTMLFile << "<p>" << j + 1 << ")" << "<a href=\"" << listDocResult[answers[i][j].first] << "\">"
+                         << listDocResult[answers[i][j].first] << "</a></p>" << std::endl;
+            } else if (answers[i][j].second <= 0)
+            {
+                HTMLFile << "<p> Не найдено </p>" << std::endl;
+            }
+        }
+        HTMLFile
+                << "<p> ======================================================================================================= </p>"
+                << std::endl;
+    }
+}
+
 void recordWords (std::vector<std::vector<std::vector<Entry>>> &VVVEntry, std::vector<std::vector<std::string>> VVString, std::vector<std::vector<Entry>> VEntry, int i, InvertedIndex _index, std::vector<int> &counter)
 {
-
-    std::mutex mtx;
-
     mtx.lock();
     for (int j = 0; j < VVString[i].size(); ++j) {
         auto r = _index.GetWordCount(VVString[i][j]);
